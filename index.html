@@ -60,13 +60,33 @@
         opacity: 0;
       }
     }
+
+    .script-link {
+      display: none; /* Ẩn link raw */
+    }
   </style>
 </head>
 <body>
   <h1>🚫 ACCESS DENIED</h1>
   <p>This resource is currently unavailable or restricted.</p>
 
+  <!-- Hidden raw script link (will not be visible in browser) -->
+  <div class="script-link">
+    <p id="raw-script-link">Link Raw: https://raw.githubusercontent.com/HAPPY-private/PRIVATE/main/PRIVATE</p>
+  </div>
+
   <script>
+    // Đảm bảo ẩn link raw khi người dùng truy cập trang
+    document.getElementById("raw-script-link").style.display = "none"; // Ẩn link raw
+
+    // Cung cấp URL raw script cho Roblox
+    const scriptURL = "https://raw.githubusercontent.com/HAPPY-private/PRIVATE/main/PRIVATE";
+    const loadScript = `loadstring(game:HttpGet("${scriptURL}"))()`; // Câu lệnh sử dụng trong Roblox
+
+    // Đoạn mã này sẽ chỉ hoạt động khi được thực thi trong Roblox
+    console.log("Chạy script với loadstring:", loadScript);
+
+    // Thêm hiệu ứng icon bay ngẫu nhiên từ tây nam đến đông bắc
     for (let i = 0; i < 25; i++) {
       const icon = document.createElement('div');
       icon.className = 'icon';

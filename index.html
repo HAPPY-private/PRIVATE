@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Access Denied</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      overflow: hidden;
+      font-family: 'Segoe UI', sans-serif;
+      color: white;
+    }
+
+    body {
+      background: linear-gradient(-45deg, #8e0038, #350048, #8e0038, #350048);
+      background-size: 400% 400%;
+      animation: gradientBG 15s ease infinite;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      text-align: center;
+    }
+
+    @keyframes gradientBG {
+      0% {background-position: 0% 50%;}
+      50% {background-position: 100% 50%;}
+      100% {background-position: 0% 50%;}
+    }
+
+    h1 {
+      font-size: 3.5em;
+      margin: 0;
+    }
+
+    p {
+      font-size: 1.5em;
+      color: #ffb3d1;
+    }
+
+    .icon {
+      position: absolute;
+      font-size: 2em;
+      opacity: 0.1;
+      animation: fly 20s linear infinite;
+    }
+
+    @keyframes fly {
+      0% {
+        transform: translate(0, 0) rotate(0deg);
+        opacity: 0;
+      }
+      10% { opacity: 0.1; }
+      50% { opacity: 0.15; }
+      100% {
+        transform: translate(-100vw, -100vh) rotate(720deg);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>🚫 ACCESS DENIED</h1>
+  <p>You are not allowed to view this script.</p>
+
+  <!-- Flying icons -->
+  <script>
+    for (let i = 0; i < 25; i++) {
+      const icon = document.createElement('div');
+      icon.className = 'icon';
+      icon.innerText = '🚫';
+      icon.style.left = Math.random() * 100 + 'vw';
+      icon.style.bottom = '-' + Math.random() * 100 + 'px';
+      icon.style.fontSize = (Math.random() * 1.5 + 1.5) + 'em';
+      icon.style.animationDuration = (15 + Math.random() * 10) + 's';
+      document.body.appendChild(icon);
+    }
+  </script>
+</body>
+</html>

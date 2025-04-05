@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
 <head>
   <meta charset="UTF-8">
   <title>Script Viewer</title>
@@ -61,32 +61,56 @@
       }
     }
 
-    .script-link {
-      display: none; /* Ẩn link raw */
+    /* Chặn bấm vào raw link */
+    .raw-link {
+      display: none;  /* Ẩn link raw */
+    }
+
+    .info-text {
+      font-size: 1.2em;
+      margin-top: 20px;
+      color: yellow;
     }
   </style>
 </head>
 <body>
   <h1>🚫 ACCESS DENIED</h1>
   <p>This resource is currently unavailable or restricted.</p>
-
-  <!-- Hidden raw script link (will not be visible in browser) -->
-  <div class="script-link">
-    <p id="raw-script-link">Link Raw: https://raw.githubusercontent.com/HAPPY-private/PRIVATE/main/PRIVATE</p>
+  
+  <!-- Vùng hiển thị link raw chỉ cho phép truy cập từ Roblox -->
+  <div class="raw-link">
+    <a id="raw-link" href="https://raw.githubusercontent.com/HAPPY-private/PRIVATE/main/PRIVATE">Raw Script</a>
+  </div>
+  
+  <!-- Text info cho người dùng -->
+  <div class="info-text">
+    <p>If you're trying to view or edit the script, please note that access is restricted to authorized users like Roblox.</p>
   </div>
 
   <script>
-    // Đảm bảo ẩn link raw khi người dùng truy cập trang
-    document.getElementById("raw-script-link").style.display = "none"; // Ẩn link raw
+    // Link raw script
+    const rawScriptUrl = 'https://raw.githubusercontent.com/HAPPY-private/PRIVATE/main/PRIVATE';
 
-    // Cung cấp URL raw script cho Roblox
-    const scriptURL = "https://raw.githubusercontent.com/HAPPY-private/PRIVATE/main/PRIVATE";
-    const loadScript = `loadstring(game:HttpGet("${scriptURL}"))()`; // Câu lệnh sử dụng trong Roblox
+    // Kiểm tra môi trường truy cập
+    if (window.location.hostname === 'happy-private.github.io') {
+      // Khi trang web được truy cập từ trình duyệt thông thường, ẩn link raw và thông báo
+      document.getElementById('raw-link').style.display = 'none';
+      document.body.innerHTML += "<p>This page is restricted. Please use Roblox to access the script.</p>";
+    }
 
-    // Đoạn mã này sẽ chỉ hoạt động khi được thực thi trong Roblox
-    console.log("Chạy script với loadstring:", loadScript);
+    // Tạo loadstring cho Roblox
+    function loadScriptForRoblox() {
+      const script = `loadstring(game:HttpGet("${rawScriptUrl}"))()`;
+      eval(script);  // Thực thi script khi Roblox gọi vào
+    }
+  </script>
 
-    // Thêm hiệu ứng icon bay ngẫu nhiên từ tây nam đến đông bắc
+  <!-- Tự động gọi script cho Roblox khi cần thiết -->
+  <script>
+    loadScriptForRoblox();
+  </script>
+
+  <script>
     for (let i = 0; i < 25; i++) {
       const icon = document.createElement('div');
       icon.className = 'icon';

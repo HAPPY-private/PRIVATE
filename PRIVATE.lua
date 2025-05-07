@@ -64,7 +64,7 @@ copyBtn.TextSize = 18
 copyBtn.TextColor3 = Color3.fromRGB(255, 255, 255)
 copyBtn.BackgroundColor3 = Color3.fromRGB(0, 120, 215)
 copyBtn.Size = UDim2.new(0.45, 0, 0, 40)
-copyBtn.Position = UDim2.new(0.05, 0, 0.8, 0)
+copyBtn.Position = UDim2.new(0.05, 0, 0.9, 0)
 copyBtn.AutoButtonColor = true
 copyBtn.Parent = mainFrame
 
@@ -79,7 +79,7 @@ gotitBtn.TextSize = 18
 gotitBtn.TextColor3 = Color3.fromRGB(255, 255, 255)
 gotitBtn.BackgroundColor3 = Color3.fromRGB(34, 139, 34)
 gotitBtn.Size = UDim2.new(0.45, 0, 0, 40)
-gotitBtn.Position = UDim2.new(0.5, 0, 0.8, 0)
+gotitBtn.Position = UDim2.new(0.5, 0, 0.9, 0)
 gotitBtn.AutoButtonColor = true
 gotitBtn.Parent = mainFrame
 

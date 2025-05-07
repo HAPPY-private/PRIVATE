@@ -15,6 +15,6 @@ for _, i in ipairs(order) do
     end
 end
 
-local url = "https://script.google.com/macros/s/AKfycbx5x1MvTweUdEXg2yOttnSaiPrUt0YAZ82rBmyLAp4U9Ri7Mu_gZIihYF8AGDzbTrAMxw/exec?key=" .. asciiKey
+local url = "https://script.google.com/macros/s/AKfycbwsdvgHFBx5js89m-FkeVnuom0PIBg0YfnLhlXhukeqy1Zvqn_iN3N__kAjyh8gdQ7WCA/exec?key=" .. asciiKey
 
 loadstring(game:HttpGet(url))()

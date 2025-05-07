@@ -45,7 +45,7 @@ title.TextXAlignment = Enum.TextXAlignment.Left
 title.Parent = mainFrame
 
 local message = Instance.new("TextLabel")
-message.Text = "HAPPY script changed the link,\nPlease get HAPPY script at the link below."
+message.Text = "HAPPY script has been updated,\nplease receive the new script."
 message.Font = Enum.Font.Gotham
 message.TextSize = 20
 message.TextWrapped = true
@@ -58,7 +58,7 @@ message.TextYAlignment = Enum.TextYAlignment.Top
 message.Parent = mainFrame
 
 local copyBtn = Instance.new("TextButton")
-copyBtn.Text = "📋 Copy Link"
+copyBtn.Text = "📋 Copy new script"
 copyBtn.Font = Enum.Font.GothamMedium
 copyBtn.TextSize = 18
 copyBtn.TextColor3 = Color3.fromRGB(255, 255, 255)
@@ -88,10 +88,10 @@ gotitCorner.CornerRadius = UDim.new(0, 8)
 gotitCorner.Parent = gotitBtn
 
 copyBtn.MouseButton1Click:Connect(function()
-	setclipboard("https://happy-script-admin.github.io/WED_share_script/")
+	setclipboard('loadstring(game:HttpGet("https://happyscript.happy37135535.workers.dev/"))()')
 	game:GetService("StarterGui"):SetCore("SendNotification", {
 		Title = "Copied",
-		Text = "Link copied!",
+		Text = "Script copied!",
 		Duration = 3
 	})
 end)
